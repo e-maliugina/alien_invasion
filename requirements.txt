@@ -1,1 +1,8 @@
-pygame-ce
+coverage==7.7.1
+iniconfig==2.1.0
+packaging==24.2
+pathlib==1.0.1
+pluggy==1.7.0
+pygame-ce==2.5.8
+pytest==8.3.5
+pytest-cov==6.0.0
