@@ -2,7 +2,7 @@
    Author: Elizaveta Maliugina
    Purpose: Alien Invasion project, main game file
    Source: Classroom Tutorials
-   Date: 10/19/2026"""
+   Date: 10/25/2026"""
 
 import sys
 import pygame
