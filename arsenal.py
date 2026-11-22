@@ -1,19 +1,19 @@
 """Name: arsenal.py
    Author: Elizaveta Maliugina
-   Purpose: Arsenal class for the Alien Invasion project
+   Purpose: Arsenal class for the Milestone project
    Source: Classroom tutorials
-   Date: 10/19/2026"""
+   Date: 11/22/2026"""
 
 import pygame
 from bullet import Bullet
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from alien_invasion import AlienInvasion
+    from fire_vs_water import FireVsWater
 
 class Arsenal:
     """Creates the arsenal class; manages bullets"""
-    def __init__(self, game: "AlienInvasion"):
+    def __init__(self, game: "FireVsWater"):
         self.game = game
         self.settings = game.settings
         self.arsenal = pygame.sprite.Group()

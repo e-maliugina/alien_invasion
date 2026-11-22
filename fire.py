@@ -1,43 +1,44 @@
-"""Name: ship.py
+"""Name: fire.py
    Author: Elizaveta Maliugina
-   Purpose: Ship class for the Alien Invasion project
+   Purpose: Fire class for the Milestone project
    Source: Classroom tutorials
-   Date: 10/19/2026"""
+   Date: 11/22/2026"""
+
 import pygame
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from alien_invasion import AlienInvasion
+    from fire_vs_water import FireVsWater
     from arsenal import Arsenal
 
-class Ship:
-    """Creates and manages ship entities"""
-    def __init__(self, game: "AlienInvasion", arsenal: "Arsenal")->None:
+class Flame:
+    """Creates and manages flame entities"""
+    def __init__(self, game: "FireVsWater", arsenal: "Arsenal")->None:
         self.game = game
         self.settings = game.settings
         self.screen = game.screen
         self.boundaries = self.screen.get_rect()
 
-        self.image = pygame.image.load(self.settings.ship_file)
-        self.image = pygame.transform.scale(self.image, (self.settings.ship_w, self.settings.ship_h))
+        self.image = pygame.image.load(self.settings.flame_file)
+        self.image = pygame.transform.scale(self.image, (self.settings.flame_w, self.settings.flame_h))
 
         self.rect = self.image.get_rect()
-        self._center_ship()
+        self._center_flame()
         self.moving_right = False
         self.moving_left = False
         self.arsenal = arsenal
 
-    def _center_ship(self):
+    def _center_flame(self):
         self.rect.midbottom = self.boundaries.midbottom
         self.x = float(self.rect.x)
 
     def update(self):
-        self._update_ship_movement()
+        self._update_flame_movement()
         self.arsenal.update_arsenal()
 
-    def _update_ship_movement(self):
-        #Updating position of the ship
-        temp_speed = self.settings.ship_speed
+    def _update_flame_movement(self):
+        #Updating position of the flame
+        temp_speed = self.settings.flame_speed
         if self.moving_right and self.rect.right < self.boundaries.right:
             self.x += temp_speed
         if self.moving_left and self.rect.left > self.boundaries.left:
@@ -52,9 +53,9 @@ class Ship:
     def fire(self)->bool:
         return self.arsenal.fire_bullet()
 
-    def check_collisions(self, other_group):
-        if pygame.sprite.spritecollideany(self, other_group):
-            self._center_ship()
-            return True
-        return False
+    # def check_collisions(self, other_group):
+    #     if pygame.sprite.spritecollideany(self, other_group):
+    #         self._center_flame()
+    #         return True
+    #     return False
     

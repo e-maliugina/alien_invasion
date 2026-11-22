@@ -2,21 +2,21 @@
    Author: Elizaveta Maliugina
    Purpose: Milestone project, main game file
    Source: Classroom Tutorials
-   Date: 11/21/2026"""
+   Date: 11/22/2026"""
 
 import sys
 import pygame
 from settings import Settings
 #from game_stats import GameStats
-from fire import Ship
+from fire import Flame
 from arsenal import Arsenal
 #from alien import Alien
 #from alien_fleet import AlienFleet
-from time import sleep
+#from time import sleep
 #from button import Button
 #from hud import HUD
 
-class AlienInvasion:
+class FireVsWater:
     """Class containing the attributes for the game and runs the main game"""
     def __init__(self)->None:
         pygame.init()
@@ -41,7 +41,7 @@ class AlienInvasion:
         # self.impact_sound = pygame.mixer.Sound(self.settings.impact_sound)
         # self.impact_sound.set_volume(0.7)
 
-        self.ship = Ship(self, Arsenal(self))
+        self.flame = Flame(self, Arsenal(self))
         # self.alien_fleet = AlienFleet(self)
         # self.alien_fleet.create_fleet()
 
@@ -53,7 +53,7 @@ class AlienInvasion:
         while self.running:
             self._check_events()
             # if self.game_active:
-            self.ship.update()
+            self.flame.update()
                 # self.alien_fleet.update_fleet()
                 # self._check_collisions()
             self._update_screen()
@@ -109,7 +109,7 @@ class AlienInvasion:
 
     def _update_screen(self)->None:
         self.screen.blit(self.bg, (0,0))
-        self.ship.draw()
+        self.flame.draw()
     #     self.alien_fleet.draw()
     #     self.HUD.draw()
 
@@ -140,17 +140,17 @@ class AlienInvasion:
 
     def _check_keyup_events(self, event)->None:
             if event.key == pygame.K_RIGHT:
-                self.ship.moving_right = False
+                self.flame.moving_right = False
             elif event.key == pygame.K_LEFT:
-                self.ship.moving_left = False
+                self.flame.moving_left = False
 
     def _check_keydown_events(self, event)->None:
         if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True
+            self.flame.moving_right = True
         elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
+            self.flame.moving_left = True
         elif event.key == pygame.K_SPACE:
-            if self.ship.fire():
+            if self.flame.fire():
                 self.laser_sound.play()
                 self.laser_sound.fadeout(400)
         elif event.key == pygame.K_q:
@@ -160,5 +160,5 @@ class AlienInvasion:
             sys.exit()
 
 if __name__ == '__main__':
-    ai = AlienInvasion()
-    ai.run_game()
+    fw = FireVsWater()
+    fw.run_game()

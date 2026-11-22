@@ -1,19 +1,19 @@
 """Name: Bullet.py
    Author: Elizaveta Maliugina
-   Purpose: Bullet class for the Alien Invasion project
+   Purpose: Bullet class for the Milestone project
    Source: Classroom tutorials
-   Date: 10/19/2026"""
+   Date: 11/19/2026"""
 
 import pygame
 from pygame.sprite import Sprite
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from alien_invasion import AlienInvasion
+    from fire_vs_water import FireVsWater
 
 class Bullet(Sprite):
     """Creates Bullet class and manages bullet properties"""
-    def __init__(self, game:"AlienInvasion")->None:
+    def __init__(self, game:"FireVsWater")->None:
         super().__init__()
 
         self.screen = game.screen
@@ -23,7 +23,7 @@ class Bullet(Sprite):
         self.image = pygame.transform.scale(self.image, (self.settings.bullet_w, self.settings.bullet_h))
         
         self.rect = self.image.get_rect()
-        self.rect.midtop = game.ship.rect.midtop
+        self.rect.midtop = game.flame.rect.midtop
         self.y = float(self.rect.y)
 
     def update(self)->None:
