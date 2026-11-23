@@ -35,8 +35,8 @@ class FireVsWater:
         self.clock = pygame.time.Clock()
 
         pygame.mixer.init()
-        self.laser_sound = pygame.mixer.Sound(self.settings.laser_sound)
-        self.laser_sound.set_volume(0.7)
+        self.fireball_sound = pygame.mixer.Sound(self.settings.fireball_sound)
+        self.fireball_sound.set_volume(0.7)
 
         # self.impact_sound = pygame.mixer.Sound(self.settings.impact_sound)
         # self.impact_sound.set_volume(0.7)
@@ -151,8 +151,8 @@ class FireVsWater:
             self.flame.moving_left = True
         elif event.key == pygame.K_SPACE:
             if self.flame.fire():
-                self.laser_sound.play()
-                self.laser_sound.fadeout(400)
+                self.fireball_sound.play()
+                self.fireball_sound.fadeout(400)
         elif event.key == pygame.K_q:
             self.running = False
             # self.game_stats.save_scores()

@@ -22,7 +22,7 @@ class Settings:
         self.flame_h = 100
 
         self.fireball_file = Path.cwd() / "Assets" / "images" / "fireball.png"
-        self.laser_sound = Path.cwd() / "Assets" / "sound" / "foom_0.wav"
+        self.fireball_sound = Path.cwd() / "Assets" / "sound" / "foom_0.wav"
         #self.impact_sound = Path.cwd() / "Assets" / "sound" / "impactSound.mp3"
        
 
