@@ -1,8 +1,8 @@
 """Name: Fire vs Water, fire_vs_water.py 
    Author: Elizaveta Maliugina
    Purpose: Milestone project, main game file
-   Source: Classroom Tutorials
-   Date: 11/22/2026"""
+   Source: Classroom Tutorials, OpenGameArt.org
+   Date: 11/22/2026""" 
 
 import sys
 import pygame

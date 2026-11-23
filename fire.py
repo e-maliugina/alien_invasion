@@ -1,7 +1,7 @@
 """Name: fire.py
    Author: Elizaveta Maliugina
    Purpose: Fire class for the Milestone project
-   Source: Classroom tutorials
+   Source: Classroom tutorials, OpenGameArt.org
    Date: 11/22/2026"""
 
 import pygame
@@ -51,7 +51,7 @@ class Flame:
         self.screen.blit(self.image, self.rect)
 
     def fire(self)->bool:
-        return self.arsenal.fire_bullet()
+        return self.arsenal.fire_fireball()
 
     # def check_collisions(self, other_group):
     #     if pygame.sprite.spritecollideany(self, other_group):

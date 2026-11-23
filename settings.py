@@ -1,8 +1,9 @@
 """Name: settings.py
    Author: Elizaveta Maliugina
    Purpose: Settings for the Milestone project
-   Source: Classroom tutorials
+   Source: Classroom tutorials, OpenGameArt.org
    Date: 11/22/2026"""
+
 from pathlib import Path
 
 class Settings:
@@ -20,7 +21,7 @@ class Settings:
         self.flame_w = 80
         self.flame_h = 100
 
-        self.bullet_file = Path.cwd() / "Assets" / "images" / "fireball.png"
+        self.fireball_file = Path.cwd() / "Assets" / "images" / "fireball.png"
         self.laser_sound = Path.cwd() / "Assets" / "sound" / "foom_0.wav"
         #self.impact_sound = Path.cwd() / "Assets" / "sound" / "impactSound.mp3"
        
@@ -43,10 +44,10 @@ class Settings:
         self.flame_speed = 15
         #self.starting_flame_count = 3
 
-        self.bullet_w = 28
-        self.bullet_h = 80
-        self.bullet_speed = 20
-        self.bullet_amount = 5
+        self.fireball_w = 28
+        self.fireball_h = 80
+        self.fireball_speed = 20
+        self.fireball_amount = 5
 
         # self.fleet_speed = 4
         # self.fleet_drop_speed = 40
@@ -54,5 +55,5 @@ class Settings:
 
     # def increase_difficulty(self)->None:
     #     self.flame_speed *= self.difficulty_scale
-    #     self.bullet_speed *= self.difficulty_scale
+    #     self.fireball_speed *= self.difficulty_scale
     #     self.fleet_speed *= self.difficulty_scale
