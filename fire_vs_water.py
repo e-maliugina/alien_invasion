@@ -19,6 +19,7 @@ from arsenal import Arsenal
 class FireVsWater:
     """Class containing the attributes for the game and runs the main game"""
     def __init__(self)->None:
+        """Initializes the instances and the game and sets up the screen."""
         pygame.init()
         self.settings = Settings()
         self.settings.initialize_dynamic_settings()
@@ -36,7 +37,7 @@ class FireVsWater:
 
         pygame.mixer.init()
         self.fireball_sound = pygame.mixer.Sound(self.settings.fireball_sound)
-        self.fireball_sound.set_volume(0.7)
+        self.fireball_sound.set_volume(0.8)
 
         # self.impact_sound = pygame.mixer.Sound(self.settings.impact_sound)
         # self.impact_sound.set_volume(0.7)
@@ -49,6 +50,7 @@ class FireVsWater:
         self.game_active = True
 
     def run_game(self)->None:
+        """Runs game"""
         #Game loop
         while self.running:
             self._check_events()
@@ -108,6 +110,7 @@ class FireVsWater:
     #     pygame.mouse.set_visible(False)
 
     def _update_screen(self)->None:
+        """Updates screen"""
         self.screen.blit(self.bg, (0,0))
         self.flame.draw()
     #     self.alien_fleet.draw()
@@ -120,6 +123,7 @@ class FireVsWater:
         pygame.display.flip()
 
     def _check_events(self)->None:
+        """Checks for events"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
@@ -139,12 +143,14 @@ class FireVsWater:
     #         self.restart_game()
 
     def _check_keyup_events(self, event)->None:
-            if event.key == pygame.K_RIGHT:
-                self.flame.moving_right = False
-            elif event.key == pygame.K_LEFT:
-                self.flame.moving_left = False
+        """Decides what to do when keys are not pressed"""
+        if event.key == pygame.K_RIGHT:
+            self.flame.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.flame.moving_left = False
 
     def _check_keydown_events(self, event)->None:
+        """Decides what to do when keys are pressed"""
         if event.key == pygame.K_RIGHT:
             self.flame.moving_right = True
         elif event.key == pygame.K_LEFT:

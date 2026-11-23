@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 class Fireball(Sprite):
     """Creates fireball class and manages fireball properties"""
     def __init__(self, game:"FireVsWater")->None:
+        """Initializes the fireball image"""
         super().__init__()
 
         self.screen = game.screen
@@ -27,8 +28,10 @@ class Fireball(Sprite):
         self.y = float(self.rect.y)
 
     def update(self)->None:
+        """Updates fireball position"""
         self.y -= self.settings.fireball_speed
         self.rect.y = self.y
 
     def draw_fireball(self)->None:
+        """Draws fireballs"""
         self.screen.blit(self.image, self.rect)

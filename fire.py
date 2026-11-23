@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 class Flame:
     """Creates and manages flame entities"""
     def __init__(self, game: "FireVsWater", arsenal: "Arsenal")->None:
+        """Initializes flame"""
         self.game = game
         self.settings = game.settings
         self.screen = game.screen
@@ -29,15 +30,17 @@ class Flame:
         self.arsenal = arsenal
 
     def _center_flame(self):
+        """Centers flame to screen bottom"""
         self.rect.midbottom = self.boundaries.midbottom
         self.x = float(self.rect.x)
 
     def update(self):
+        """Updates the flame movement and arsenal"""
         self._update_flame_movement()
         self.arsenal.update_arsenal()
 
     def _update_flame_movement(self):
-        #Updating position of the flame
+        """Updates position of the flame"""
         temp_speed = self.settings.flame_speed
         if self.moving_right and self.rect.right < self.boundaries.right:
             self.x += temp_speed
@@ -47,10 +50,12 @@ class Flame:
         self.rect.x = self.x
 
     def draw(self)->None:
+        """Draws fireballs if possible and the flame"""
         self.arsenal.draw()
         self.screen.blit(self.image, self.rect)
 
     def fire(self)->bool:
+        """Fires fireballs"""
         return self.arsenal.fire_fireball()
 
     # def check_collisions(self, other_group):
